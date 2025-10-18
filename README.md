@@ -189,13 +189,13 @@ Gurusinghe, T.M., Senaratna, S.T.S., Jayathilaka, K.A., & Wickramaarachchi, L.T.
 
 
 
-## 👥 Team Members
-| Name | Git Username |
-|-------|------------------|
-| S.T.S. Senaratna |  |
-| K.A. Jayathilaka |  |
-| T.M. Gurusinghe |  |
-| L.T.B. Wickramaarachchi | |
+## 👥 Collaborators
+
+- [@Tiyani-source](https://github.com/Tiyani-source)
+- [@WickramaarachchiLTB](https://github.com/LLWICK)
+- [@SenaratnaSTS](https://github.com/ThushanSenaratnaDev)
+- [@JayathilakaKA](https://github.com/Kasunianupama)
+
 
 
 
