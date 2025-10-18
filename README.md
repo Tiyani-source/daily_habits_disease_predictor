@@ -179,13 +179,12 @@ daily_habits_disease_predictor/
 │   └── xgb_output.png
 │
 ├── README.md                            # Project documentation (this file)
-├── best_threshold.pkl                   # Saved optimal classification threshold
-├── daily_habits_disease_prediction.ipynb# Jupyter notebook (EDA, preprocessing, model training)
-├── frontend.py                          # Streamlit web application
-├── requirements.txt                     # Required Python dependencies
-├── selected_features.pkl                # Serialized list of top-ranked features
-└── xgb_model.pkl                        # Trained XGBoost model for deployment
-
+├── best_threshold.pkl           # Saved optimal classification threshold
+├── daily_habits_disease_prediction.ipynb  # Notebook (EDA, preprocessing, modeling)
+├── frontend.py                         # Streamlit web application
+├── requirements.txt               # Required Python dependencies
+├── selected_features.pkl     # Serialized list of top-ranked features
+└── xgb_model.pkl                     # Trained XGBoost model for deployment
 
 
 # 🔮 Future Work
