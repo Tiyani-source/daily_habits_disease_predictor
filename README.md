@@ -5,7 +5,7 @@
 *A Data Science Group Project *  
 
 [![Streamlit App](https://img.shields.io/badge/🌐_Live_App-Link-blue?style=flat-square)](https://dailyhabitsdiseasepredictor-ifwfkpix8myuadevbeymnh.streamlit.app/)  
-[![GitHub](https://img.shields.io/badge/📂_Repository-Link-green?style=flat-square)](<<insert-github-link-here>>)  
+[![GitHub](https://img.shields.io/badge/📂_Repository-Link-green?style=flat-square)](https://github.com/Tiyani-source/daily_habits_disease_predictor.git)  
 [![Dataset](https://img.shields.io/badge/📊_Kaggle_Dataset-Link-orange?style=flat-square)](https://www.kaggle.com/datasets/mahdimashayekhi/disease-risk-from-daily-habits)
 
 ---
