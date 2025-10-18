@@ -156,15 +156,6 @@ ROC–AUC  : 0.497
 
 # 📂 File Structure
 
-📦 Disease_Risk_Prediction
- ┣ 📜 daily_habits_disease_prediction.ipynb   # EDA + model pipeline
- ┣ 📜 frontend.py                             # Streamlit web app
- ┣ 📜 xgb_model.pkl                           # Trained model
- ┣ 📜 selected_features.pkl                   # Final features
- ┣ 📜 best_threshold.pkl                      # ROC-tuned threshold
- ┣ 📜 requirements.txt
- ┗ 📜 README.md
-
 - 📁 [assets/](assets/) — Folder containing visual assets (plots, screenshots)
   - 🖼️ [correlation_heatmap.png](assets/correlation_heatmap.png)
   - 🖼️ [bmi_by_target.png](assets/bmi_by_target.png)
