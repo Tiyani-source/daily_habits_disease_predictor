@@ -1,8 +1,5 @@
-⸻
-
-
 # 🧠 Disease Risk Prediction from Daily Habits  
-*A Data Science Group Project *  
+**A Data Science Group Project**
 
 [![Streamlit App](https://img.shields.io/badge/🌐_Live_App-Link-blue?style=flat-square)](https://dailyhabitsdiseasepredictor-ifwfkpix8myuadevbeymnh.streamlit.app/)  
 [![GitHub](https://img.shields.io/badge/📂_Repository-Link-green?style=flat-square)](https://github.com/Tiyani-source/daily_habits_disease_predictor.git)  
@@ -51,7 +48,7 @@ Despite extensive tuning and transformations, the dataset showed **minimal discr
 Weak feature–target and inter-feature correlations:
 ![Correlation Heatmap](assets/correlation_heatmap.png)
 
----
+
 
 ## 🧩 Feature Stratification
 Density plots show overlapping distributions between healthy (0) and at-risk (1) classes — confirming limited separation.
@@ -65,7 +62,7 @@ Density plots show overlapping distributions between healthy (0) and at-risk (1)
 
 > Nearly identical curves → low predictive separation.
 
----
+
 
 ## 🧮 Feature Engineering
 Introduced engineered metrics to improve signal:
@@ -78,7 +75,7 @@ Introduced engineered metrics to improve signal:
 
 ![Feature Engineering Notebook](assets/feature_engineering.png)
 
----
+
 
 ## 🧠 Polynomial Feature Interactions
 Explored nonlinear relationships (e.g., BMI × Glucose, Stress × Sleep).  
@@ -93,7 +90,6 @@ pipe = Pipeline([
 📊 Result: ROC–AUC = 0.50, confirming minimal nonlinear separation.
 
 
-⸻
 
 ⚙️ Model Development
 
@@ -156,7 +152,7 @@ F1-score : 0.815
 ROC–AUC  : 0.497
 
 
-⸻
+
 
 # 📂 File Structure
 
@@ -190,20 +186,20 @@ daily_habits_disease_predictor/
 ├── selected_features.pkl                # Serialized list of top-ranked features
 └── xgb_model.pkl                        # Trained XGBoost model for deployment
 
-⸻
+
 
 # 🔮 Future Work
 
 	•	Integrate clinical and behavioral datasets
 	•	Explore multi-label disease categories
 
-⸻
+
 
 # 🧾 Citation
 
 Gurusinghe, T.M., Senaratna, S.T.S., Jayathilaka, K.A., & Wickramaarachchi, L.T.B. (2025). Disease Risk Prediction from Daily Habits – SLIIT, IT3051: Fundamentals of Data Mining.
 
----
+
 
 ## 👥 Team Members
 | Name | Git Username |
@@ -214,7 +210,6 @@ Gurusinghe, T.M., Senaratna, S.T.S., Jayathilaka, K.A., & Wickramaarachchi, L.T.
 | L.T.B. Wickramaarachchi | |
 
 
-⸻
 
 # 📘 Summary
 
@@ -222,5 +217,3 @@ Key takeaway:
 Even after feature engineering, SHAP filtering, and polynomial interactions,
 the model’s AUC ≈ 0.5 indicates the dataset itself lacks predictive signal.
 Future progress depends on richer, clinically grounded data sources.
-
-⸻
