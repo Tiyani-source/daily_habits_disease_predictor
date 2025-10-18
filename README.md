@@ -8,7 +8,7 @@
 [![GitHub](https://img.shields.io/badge/📂_Repository-Link-green?style=flat-square)](https://github.com/Tiyani-source/daily_habits_disease_predictor.git)  
 [![Dataset](https://img.shields.io/badge/📊_Kaggle_Dataset-Link-orange?style=flat-square)](https://www.kaggle.com/datasets/mahdimashayekhi/disease-risk-from-daily-habits)
 
----
+
 
 ## 📘 Overview
 This project investigates whether **daily lifestyle data** can predict chronic disease risk.  
@@ -18,7 +18,7 @@ Despite extensive tuning and transformations, the dataset showed **minimal discr
 
 > 🧩 *“Even the cleanest models can’t fix weakly predictive data.”*
 
----
+
 
 ## 🎯 Objectives
 - Clean and preprocess lifestyle–health data for predictive modeling  
@@ -26,7 +26,7 @@ Despite extensive tuning and transformations, the dataset showed **minimal discr
 - Train ML models and compare performance (Logistic, Tree-based, XGBoost)  
 - Deploy the final model via a **Streamlit web app**
 
----
+
 
 ## 🧹 Data Preprocessing Summary
 **Dataset:** 100,000 records × 43 features  
@@ -169,6 +169,26 @@ ROC–AUC  : 0.497
  ┣ 📜 requirements.txt
  ┗ 📜 README.md
 
+
+daily_habits_disease_predictor/
+├── assets/                              # Folder containing visual assets (plots, screenshots)
+│   ├── correlation_heatmap.png
+│   ├── bmi_by_target.png
+│   ├── cholesterol_by_target.png
+│   ├── glucose_by_target.png
+│   ├── stress_by_target.png
+│   ├── shap_summary.png
+│   ├── feature_engineering.png
+│   ├── polynomial_interactions.png
+│   └── xgb_output.png
+│
+├── README.md                            # Project documentation (this file)
+├── best_threshold.pkl                   # Saved optimal classification threshold
+├── daily_habits_disease_prediction.ipynb# Jupyter notebook (EDA, preprocessing, model training)
+├── frontend.py                          # Streamlit web application
+├── requirements.txt                     # Required Python dependencies
+├── selected_features.pkl                # Serialized list of top-ranked features
+└── xgb_model.pkl                        # Trained XGBoost model for deployment
 
 ⸻
 
