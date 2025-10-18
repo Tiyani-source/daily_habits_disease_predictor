@@ -165,26 +165,24 @@ ROC–AUC  : 0.497
  ┣ 📜 requirements.txt
  ┗ 📜 README.md
 
+- 📁 [assets/](assets/) — Folder containing visual assets (plots, screenshots)
+  - 🖼️ [correlation_heatmap.png](assets/correlation_heatmap.png)
+  - 🖼️ [bmi_by_target.png](assets/bmi_by_target.png)
+  - 🖼️ [cholesterol_by_target.png](assets/cholesterol_by_target.png)
+  - 🖼️ [glucose_by_target.png](assets/glucose_by_target.png)
+  - 🖼️ [stress_by_target.png](assets/stress_by_target.png)
+  - 🖼️ [shap_summary.png](assets/shap_summary.png)
+  - 🖼️ [feature_engineering.png](assets/feature_engineering.png)
+  - 🖼️ [polynomial_interactions.png](assets/polynomial_interactions.png)
+  - 🖼️ [xgb_output.png](assets/xgb_output.png)
 
-daily_habits_disease_predictor/
-├── assets/                              # Folder containing visual assets (plots, screenshots)
-│   ├── correlation_heatmap.png
-│   ├── bmi_by_target.png
-│   ├── cholesterol_by_target.png
-│   ├── glucose_by_target.png
-│   ├── stress_by_target.png
-│   ├── shap_summary.png
-│   ├── feature_engineering.png
-│   ├── polynomial_interactions.png
-│   └── xgb_output.png
-│
-├── README.md                            # Project documentation (this file)
-├── best_threshold.pkl           # Saved optimal classification threshold
-├── daily_habits_disease_prediction.ipynb  # Notebook (EDA, preprocessing, modeling)
-├── frontend.py                         # Streamlit web application
-├── requirements.txt               # Required Python dependencies
-├── selected_features.pkl     # Serialized list of top-ranked features
-└── xgb_model.pkl                     # Trained XGBoost model for deployment
+- 📘 [README.md](README.md) — Project documentation (this file)
+- 🧠 [daily_habits_disease_prediction.ipynb](daily_habits_disease_prediction.ipynb) — Jupyter notebook for EDA, preprocessing, and model training
+- 💻 [frontend.py](frontend.py) — Streamlit web application
+- ⚙️ [requirements.txt](requirements.txt) — Python dependencies
+- 📊 [selected_features.pkl](selected_features.pkl) — Serialized list of top-ranked features
+- 🎯 [best_threshold.pkl](best_threshold.pkl) — Optimal probability threshold for classification
+- 🔮 [xgb_model.pkl](xgb_model.pkl) — Trained XGBoost model used for predictions
 
 
 # 🔮 Future Work
