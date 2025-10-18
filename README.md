@@ -11,11 +11,12 @@
 ---
 
 ## 📘 Overview
-This project investigates whether **daily lifestyle and biometric data** can predict an individual's disease risk.  
-We used a **large Kaggle dataset (100,000+ records, 43 features)** and applied full-scale **data mining and ML workflows** — from **cleaning and feature engineering** to **model training and Streamlit deployment**.
+This project investigates whether **daily lifestyle data** can predict chronic disease risk.  
+A dataset of **100,000 records (43 features)** from Kaggle was analyzed with feature engineering, model training, and explainability techniques.  
 
-> ⚠️ The dataset, while comprehensive, showed **low predictive power**, emphasizing the role of **data quality and feature relevance** in health analytics.
+Despite extensive tuning and transformations, the dataset showed **minimal discriminative power (ROC–AUC ≈ 0.5)**, illustrating the **importance of feature quality** in predictive healthcare.
 
+> 🧩 *“Even the cleanest models can’t fix weakly predictive data.”*
 
 ---
 
@@ -31,80 +32,129 @@ We used a **large Kaggle dataset (100,000+ records, 43 features)** and applied f
 **Dataset:** 100,000 records × 43 features  
 **Target Variable:** `target` (Healthy / Diseased)
 
-**Key Steps**
 - 🔍 **Missing Data:**  
   - Dropped: `alcohol_consumption`, `income`, `gene_marker_flag`  
   - Imputed: numerical columns via *Iterative Imputer (Bayesian Ridge)*  
   - Filled: categorical nulls with “Unknown” or “None”
+- **Removed**: `income`, `gene_marker_flag`, `alcohol_consumption`, `occupation` (missing or irrelevant)
+- **Imputed** missing values using *Iterative Imputer (Bayesian Ridge)*  
 - ⚙️ **Redundant Features Removed:**  
   - `bmi_scaled`, `bmi_corrected`, `bmi_estimated`, `survey_code`
+- **Verified** no major skew → symmetric numeric distributions  
+- **Label encoding** for categorical variables
 - 📊 **Normalization & Type Cleaning:**  
   - Verified skewness ≈ 0 → no transformation needed  
 - 🔁 **Correlation Check:**  
   - Dropped `height` & `weight` (high correlation with BMI)
 
----
-
-## 🧩 Feature Engineering
-- One-hot encoding for categorical features  
-- Mutual Information (MI) analysis for importance ranking  
-- T-tests & effect-size filtering for numeric predictors  
-- Created derived composites like:
-  - **Work–life balance** = `sleep_hours` vs `work_hours`  
-  - **Lifestyle activity** = combined `daily_steps`, `physical_activity`, `screen_time`
-
-**Final feature count:** 31  
+### 🔍 Correlation Heatmap
+Weak feature–target and inter-feature correlations:
+![Correlation Heatmap](assets/correlation_heatmap.png)
 
 ---
 
-## ⚙️ Model Development
-| Model | Accuracy | ROC–AUC | F1-score |
-|--------|-----------|----------|-----------|
-| Logistic Regression | 0.66 | 0.71 | 0.66 |
-| Decision Tree | 0.68 | 0.70 | 0.67 |
-| **XGBoost (final)** | **0.69** | **0.72** | **0.69** |
+## 🧩 Feature Stratification
+Density plots show overlapping distributions between healthy (0) and at-risk (1) classes — confirming limited separation.
 
-Model threshold was fine-tuned using **ROC curve optimization** and deployed via Streamlit.
+| Feature | Density Plot |
+|----------|--------------|
+| **BMI** | ![BMI by target](assets/bmi_by_target.png) |
+| **Cholesterol** | ![Cholesterol by target](assets/cholesterol_by_target.png) |
+| **Glucose** | ![Glucose by target](assets/glucose_by_target.png) |
+| **Stress Level** | ![Stress level by target](assets/stress_by_target.png) |
 
----
-
-## 🧠 Insights
-- Most lifestyle variables (e.g., diet, sleep, caffeine) were **weak individual predictors**.  
-- Moderate influence found in **BMI**, **blood pressure**, and **daily steps**.  
-- Indicates that **purely self-reported habits** have limited discriminative power for disease prediction.
+> Nearly identical curves → low predictive separation.
 
 ---
 
-## 🧰 Tech Stack
-| Category | Tools |
-|-----------|--------|
-| **Data Analysis** | Pandas, NumPy, Matplotlib, Seaborn |
-| **Machine Learning** | scikit-learn, XGBoost |
-| **Deployment** | Streamlit |
-| **Version Control** | GitHub |
+## 🧮 Feature Engineering
+Introduced engineered metrics to improve signal:
+
+- 🧬 **Risk composites**: `metabolic_risk`, `cardio_risk`, `obesity_flag`  
+- 💡 **Lifestyle indices**: `sleep_efficiency`, `work_life_balance`, `activity_ratio`  
+- 💭 **Categorical encodings**: `stress_cat`, `mental_cat`  
+- 🔗 **Interactions**: `high_stress_low_support`  
+- ⚖️ **Ratios**: `waist_height_ratio`, `sugar_ratio`, `water_per_weight`
+
+![Feature Engineering Notebook](assets/feature_engineering.png)
 
 ---
 
-## 🚀 Run Locally
-```bash
-# Clone the repo
-git clone <<your-repo-link>>
-cd Disease_Risk_Prediction
+## 🧠 Polynomial Feature Interactions
+Explored nonlinear relationships (e.g., BMI × Glucose, Stress × Sleep).  
+Created polynomial feature expansions using `PolynomialFeatures(degree=2)` with stratified logistic regression.
 
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the Streamlit app
-streamlit run frontend.py
-
-requirements.txt
-
-streamlit>=1.35
-scikit-learn>=1.5
-xgboost>=2.0
-pandas>=2.1
-numpy>=1.26
+```python
+pipe = Pipeline([
+  ("poly", PolynomialFeatures(degree=2, include_bias=False)),
+  ("logreg", LogisticRegression(max_iter=5000, class_weight="balanced"))
+])
 ```
+📊 Result: ROC–AUC = 0.50, confirming minimal nonlinear separation.
+
+
+⸻
+
+⚙️ Model Development
+
+Models Tested
+	•	Logistic Regression
+	•	Decision Tree
+	•	Random Forest
+	•	XGBoost (final selected)
+
+
+⸻
+
+🔍 SHAP Explainability
+
+Feature importance was computed using SHAP to identify key contributors.
+Top global SHAP values showed the following influences:
+
+Feature	SHAP Importance
+sugar_intake	0.043
+bmi	0.042
+sleep_hours	0.037
+water_intake	0.034
+daily_supplement_dosage	0.033
+
+
+⸻
+
+📉 Univariate Feature AUC
+
+Each individual feature’s discrimination power was near random.
+
+=== Top 20 Features by Univariate AUC ===
+work_hours ........... 0.507  
+bmi .................. 0.497  
+glucose .............. 0.498  
+exercise_type ........ 0.503  
+sleep_quality ........ 0.499  
+stress_cat ........... 0.499  
+
+📎 This indicates the target labels are not well explained by available variables.
+
+⸻
+
+🧾 Model Performance Highlights
+
+All Features (XGBoost)
+
+Accuracy : 0.326
+Precision: 0.700
+Recall   : 0.068
+F1-score : 0.124
+ROC–AUC  : 0.494
+
+Reduced Feature Set (Recall Optimized)
+
+Accuracy : 0.690
+Precision: 0.700
+Recall   : 0.975
+F1-score : 0.815
+ROC–AUC  : 0.497
+
 
 ⸻
 
@@ -123,10 +173,9 @@ numpy>=1.26
 ⸻
 
 # 🔮 Future Work
-	•	Add explainability using SHAP or LIME
-	•	Address class imbalance with SMOTE or focal loss
-	•	Integrate real clinical data for higher predictive reliability
-	•	Implement a feedback retraining loop for model adaptation
+
+	•	Integrate clinical and behavioral datasets
+	•	Explore multi-label disease categories
 
 ⸻
 
@@ -149,7 +198,9 @@ Gurusinghe, T.M., Senaratna, S.T.S., Jayathilaka, K.A., & Wickramaarachchi, L.T.
 
 # 📘 Summary
 
-“Even the cleanest data pipeline cannot compensate for weakly predictive data —
-this project highlights the importance of feature quality over model complexity.”
+Key takeaway:
+Even after feature engineering, SHAP filtering, and polynomial interactions,
+the model’s AUC ≈ 0.5 indicates the dataset itself lacks predictive signal.
+Future progress depends on richer, clinically grounded data sources.
 
 ⸻
