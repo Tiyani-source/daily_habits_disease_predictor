@@ -91,7 +91,7 @@ pipe = Pipeline([
 
 
 
-⚙️ Model Development
+## ⚙️ Model Development
 
 Models Tested
 	•	Logistic Regression
@@ -100,9 +100,7 @@ Models Tested
 	•	XGBoost (final selected)
 
 
-⸻
-
-🔍 SHAP Explainability
+## 🔍 SHAP Explainability
 
 Feature importance was computed using SHAP to identify key contributors.
 Top global SHAP values showed the following influences:
@@ -115,9 +113,8 @@ water_intake	0.034
 daily_supplement_dosage	0.033
 
 
-⸻
 
-📉 Univariate Feature AUC
+## 📉 Univariate Feature AUC
 
 Each individual feature’s discrimination power was near random.
 
@@ -131,9 +128,9 @@ stress_cat ........... 0.499
 
 📎 This indicates the target labels are not well explained by available variables.
 
-⸻
 
-🧾 Model Performance Highlights
+
+## 🧾 Model Performance Highlights
 
 All Features (XGBoost)
 
@@ -183,9 +180,18 @@ ROC–AUC  : 0.497
 
 
 
+
+# 📘 Summary
+
+Key takeaway:
+Even after feature engineering, SHAP filtering, and polynomial interactions,
+the model’s AUC ≈ 0.5 indicates the dataset itself lacks predictive signal.
+Future progress depends on richer, clinically grounded data sources.
+
+
 # 🧾 Citation
 
-Gurusinghe, T.M., Senaratna, S.T.S., Jayathilaka, K.A., & Wickramaarachchi, L.T.B. (2025). Disease Risk Prediction from Daily Habits – SLIIT, IT3051: Fundamentals of Data Mining.
+Gurusinghe, T.M., Senaratna, S.T.S., Jayathilaka, K.A., & Wickramaarachchi, L.T.B. (2025). Disease Risk Prediction from Daily Habits Project
 
 
 
@@ -197,11 +203,3 @@ Gurusinghe, T.M., Senaratna, S.T.S., Jayathilaka, K.A., & Wickramaarachchi, L.T.
 - [@WickramaarachchiLTB](https://github.com/LLWICK)
 
 
-
-
-# 📘 Summary
-
-Key takeaway:
-Even after feature engineering, SHAP filtering, and polynomial interactions,
-the model’s AUC ≈ 0.5 indicates the dataset itself lacks predictive signal.
-Future progress depends on richer, clinically grounded data sources.
