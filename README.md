@@ -94,41 +94,10 @@ pipe = Pipeline([
 ## ⚙️ Model Development
 
 Models Tested
-	•	Logistic Regression
-	•	Decision Tree
-	•	Random Forest
-	•	XGBoost (final selected)
-
-
-## 🔍 SHAP Explainability
-
-Feature importance was computed using SHAP to identify key contributors.
-Top global SHAP values showed the following influences:
-
-Feature	SHAP Importance
-sugar_intake	0.043
-bmi	0.042
-sleep_hours	0.037
-water_intake	0.034
-daily_supplement_dosage	0.033
-
-
-
-## 📉 Univariate Feature AUC
-
-Each individual feature’s discrimination power was near random.
-
-=== Top 20 Features by Univariate AUC ===
-work_hours ........... 0.507  
-bmi .................. 0.497  
-glucose .............. 0.498  
-exercise_type ........ 0.503  
-sleep_quality ........ 0.499  
-stress_cat ........... 0.499  
-
-📎 This indicates the target labels are not well explained by available variables.
-
-
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- XGBoost (final selected)
 
 ## 🧾 Model Performance Highlights
 
@@ -149,9 +118,37 @@ F1-score : 0.815
 ROC–AUC  : 0.497
 
 
+🔍 SHAP Explainability
+
+Feature importance was computed using SHAP to identify key contributors.
+Top global SHAP values showed the following influences:
+
+Feature	SHAP Importance
+sugar_intake	0.043
+bmi	0.042
+sleep_hours	0.037
+water_intake	0.034
+daily_supplement_dosage	0.033
 
 
-# 📂 File Structure
+
+📉 Univariate Feature AUC
+
+Each individual feature’s discrimination power was near random.
+
+=== Top 20 Features by Univariate AUC ===
+work_hours ........... 0.507  
+bmi .................. 0.497  
+glucose .............. 0.498  
+exercise_type ........ 0.503  
+sleep_quality ........ 0.499  
+stress_cat ........... 0.499  
+
+📎 This indicates the target labels are not well explained by available variables.
+
+
+
+## 📂 File Structure
 
 - 📁 [assets/](assets/) — Folder containing visual assets (plots, screenshots)
   - 🖼️ [correlation_heatmap.png](assets/correlation_heatmap.png)
@@ -173,15 +170,14 @@ ROC–AUC  : 0.497
 - 🔮 [xgb_model.pkl](xgb_model.pkl) — Trained XGBoost model used for predictions
 
 
-# 🔮 Future Work
+## 🔮 Future Work
 
-	•	Integrate clinical and behavioral datasets
-	•	Explore multi-label disease categories
-
-
+- Integrate clinical and behavioral datasets
+- Explore multi-label disease categories
 
 
-# 📘 Summary
+
+## 📘 Summary
 
 Key takeaway:
 Even after feature engineering, SHAP filtering, and polynomial interactions,
