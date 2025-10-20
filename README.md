@@ -63,6 +63,49 @@ Density plots show overlapping distributions between healthy (0) and at-risk (1)
 > Nearly identical curves → low predictive separation.
 
 
+## ⚙️ Model Development
+
+Models Tested
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- XGBoost (final selected)
+
+## 🧾 Model Performance Highlights
+
+All Features (XGBoost)
+
+Accuracy : 0.326
+Precision: 0.700
+Recall   : 0.068
+F1-score : 0.124
+ROC–AUC  : 0.494
+
+
+### 🔍 SHAP Explainability
+
+Feature importance in the selected model was computed using SHAP to identify key contributors.
+Top global SHAP values showed the following influences:
+
+Feature	SHAP Importance
+
+sugar_intake	0.043
+bmi	0.042
+sleep_hours	0.037
+water_intake	0.034
+daily_supplement_dosage	0.033
+
+### Final XGBoost Model (Reduced)
+Model was further improved by using the most powerful features.
+
+Reduced Feature Set (Recall Optimized)
+
+Accuracy : 0.690
+Precision: 0.700
+Recall   : 0.975
+F1-score : 0.815
+ROC–AUC  : 0.497
+
 ## 📉 Univariate Feature AUC
 
 Each individual feature’s discrimination power was near random.
@@ -91,49 +134,6 @@ pipe = Pipeline([
 ])
 ```
 📊 Result: ROC–AUC = 0.50, confirming minimal nonlinear separation.
-
-
-
-## ⚙️ Model Development
-
-Models Tested
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- XGBoost (final selected)
-
-## 🧾 Model Performance Highlights
-
-All Features (XGBoost)
-
-Accuracy : 0.326
-Precision: 0.700
-Recall   : 0.068
-F1-score : 0.124
-ROC–AUC  : 0.494
-
-
-🔍 SHAP Explainability
-
-Feature importance in the selected model was computed using SHAP to identify key contributors.
-Top global SHAP values showed the following influences:
-
-Feature	SHAP Importance
-sugar_intake	0.043
-bmi	0.042
-sleep_hours	0.037
-water_intake	0.034
-daily_supplement_dosage	0.033
-
-Model was further improved by using the most powerful features.
-
-Reduced Feature Set (Recall Optimized)
-
-Accuracy : 0.690
-Precision: 0.700
-Recall   : 0.975
-F1-score : 0.815
-ROC–AUC  : 0.497
 
 
 
