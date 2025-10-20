@@ -63,6 +63,13 @@ Density plots show overlapping distributions between healthy (0) and at-risk (1)
 > Nearly identical curves → low predictive separation.
 
 
+## 📉 Univariate Feature AUC
+
+Each individual feature’s discrimination power was near random.
+
+![Feature Engineering Notebook](assets/feature_engineering.png)
+
+📎 This indicates the target labels are not well explained by available variables.
 
 ## 🧮 Feature Engineering
 Introduced engineered metrics to improve signal:
@@ -72,10 +79,6 @@ Introduced engineered metrics to improve signal:
 - 💭 **Categorical encodings**: `stress_cat`, `mental_cat`  
 - 🔗 **Interactions**: `high_stress_low_support`  
 - ⚖️ **Ratios**: `waist_height_ratio`, `sugar_ratio`, `water_per_weight`
-
-![Feature Engineering Notebook](assets/feature_engineering.png)
-
-
 
 ## 🧠 Polynomial Feature Interactions
 Explored nonlinear relationships (e.g., BMI × Glucose, Stress × Sleep).  
@@ -109,18 +112,10 @@ Recall   : 0.068
 F1-score : 0.124
 ROC–AUC  : 0.494
 
-Reduced Feature Set (Recall Optimized)
-
-Accuracy : 0.690
-Precision: 0.700
-Recall   : 0.975
-F1-score : 0.815
-ROC–AUC  : 0.497
-
 
 🔍 SHAP Explainability
 
-Feature importance was computed using SHAP to identify key contributors.
+Feature importance in the selected model was computed using SHAP to identify key contributors.
 Top global SHAP values showed the following influences:
 
 Feature	SHAP Importance
@@ -130,21 +125,15 @@ sleep_hours	0.037
 water_intake	0.034
 daily_supplement_dosage	0.033
 
+Model was further improved by using the most powerful features.
 
+Reduced Feature Set (Recall Optimized)
 
-📉 Univariate Feature AUC
-
-Each individual feature’s discrimination power was near random.
-
-=== Top 20 Features by Univariate AUC ===
-work_hours ........... 0.507  
-bmi .................. 0.497  
-glucose .............. 0.498  
-exercise_type ........ 0.503  
-sleep_quality ........ 0.499  
-stress_cat ........... 0.499  
-
-📎 This indicates the target labels are not well explained by available variables.
+Accuracy : 0.690
+Precision: 0.700
+Recall   : 0.975
+F1-score : 0.815
+ROC–AUC  : 0.497
 
 
 
