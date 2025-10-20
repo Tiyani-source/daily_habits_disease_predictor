@@ -13,7 +13,6 @@ A dataset of **100,000 records (43 features)** from Kaggle was analyzed with fea
 
 Despite extensive tuning and transformations, the dataset showed **minimal discriminative power (ROC–AUC ≈ 0.5)**, illustrating the **importance of feature quality** in predictive healthcare.
 
-> 🧩 *“Even the cleanest models can’t fix weakly predictive data.”*
 
 
 
